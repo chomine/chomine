@@ -1,6 +1,7 @@
 # Pipeline to install CHOmine 
 
-This repository contains all scripts to build current CHOmine
+This repository contains all scripts to build current CHOmine 
+([https://chomine.boku.ac.at](https://chomine.boku.ac.at))
 
 ## Manual work before running the script
 
