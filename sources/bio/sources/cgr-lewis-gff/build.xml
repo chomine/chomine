@@ -1,0 +1,4 @@
+<project name="cgr-lewis-gff" default="default" basedir=".">
+  <description>build, test, package cgr-lewis-gff</description>
+  <import file="../../../imbuild/source.xml"/>
+</project>

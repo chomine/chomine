@@ -1,0 +1,16 @@
+||:org.intermine.bio.dataconversion.CgrBrinkrolfGFF3RecordHandler
+org.intermine.xml.full.Item
+java.util.List
+org.intermine.xml.full.Attribute
+org.intermine.bio.dataconversion.GFF3RecordHandler
+java.io.PrintStream
+java.lang.System
+java.util.Iterator
+java.util.Map
+java.util.HashMap
+org.intermine.bio.dataconversion.GFF3Converter
+org.intermine.xml.full.Reference
+org.intermine.bio.io.gff3.GFF3Record
+[Ljava.lang.String;
+org.intermine.bio.dataconversion.CgrBrinkrolfGFF3RecordHandler
+java.lang.String

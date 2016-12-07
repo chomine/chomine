@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+    <class name="Compartment" extends="BioEntity" is-interface="true">
+        <collection name="species" referenced-type="Species" reverse-reference="compartments" />
+        <collection name="metabolicmodels" referenced-type="MetabolicModel" reverse-reference="compartments" />
+    </class>
+    <class name="Species" extends="BioEntity" is-interface="true">
+        <attribute name="formula" type="java.lang.String" />
+        <collection name="compartments" referenced-type="Compartment" reverse-reference="species" />
+        <collection name="reactions" referenced-type="Reaction" reverse-reference="species" />
+        <collection name="metabolicmodels" referenced-type="MetabolicModel" reverse-reference="species" />
+    </class>
+    <class name="Gene" is-interface="true">
+        <attribute name="modelID" type="java.lang.String" />
+        <attribute name="geneID" type="java.lang.String" />
+        <collection name="reactions" referenced-type="Reaction" reverse-reference="genes" />
+        <collection name="metabolicmodels" referenced-type="MetabolicModel" reverse-reference="genes" />
+    </class>
+    <class name="Reaction" extends="BioEntity" is-interface="true">
+        <attribute name="modelID" type="java.lang.String" />
+        <collection name="species" referenced-type="Species" reverse-reference="reactions" />
+        <collection name="speciesreferences" referenced-type="Speciesreference" reverse-reference="reactions" />
+        <collection name="genes" referenced-type="Gene" reverse-reference="reactions" />
+        <collection name="details" referenced-type="ReactionDetail" reverse-reference="reaction" />
+    </class>
+    <class name="MetabolicModel" extends="BioEntity" is-interface="true">
+        <attribute name="url" type="java.lang.String" />
+        <attribute name="name" type="java.lang.String" />
+        <collection name="compartments" referenced-type="Compartment" reverse-reference="metabolicmodels" />
+        <collection name="species" referenced-type="Species" reverse-reference="metabolicmodels" />
+        <collection name="reactions" referenced-type="ReactionDetail" reverse-reference="metabolicmodel" />
+        <collection name="genes" referenced-type="Gene" reverse-reference="metabolicmodels" />
+    </class>
+    <class name="ReactionDetail" extends="BioEntity" is-interface="true">
+        <attribute name="reversible" type="java.lang.Boolean" />
+        <reference name="reaction" referenced-type="Reaction" reverse-reference="details" />
+        <reference name="metabolicmodel" referenced-type="MetabolicModel" reverse-reference="reactions" />
+    </class>
+    <class name="Speciesreference" is-interface="true">
+        <attribute name="stoichiometry" type="java.lang.Double" />
+        <attribute name="name" type="java.lang.String" />
+        <reference name="species" referenced-type="Species" />
+        <collection name="reactions" referenced-type="Reaction" reverse-reference="speciesreferences" />
+    </class>
+</classes>

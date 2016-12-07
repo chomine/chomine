@@ -1,0 +1,148 @@
+<project type="bio">
+    <property name="target.model" value="genomic"/>
+    <property name="source.location" location="../bio/sources/"/>
+    <property name="common.os.prefix" value="common"/>
+    <property name="intermine.properties.file" value="chomine.properties"/>
+    <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
+    <sources>
+        <source name="uniprot-cgr" type="uniprot">
+            <property name="uniprot.organisms" value="10029"/>
+            <property name="src.data.dir" location="DATADIR/uniprot/"/>
+            <property name="creatego" value="true"/>
+            <property name="creategenes" value="true"/>
+            <property name="allowduplicates" value="true"/>
+            <property name="loadfragments" value="true"/>
+            <property name="loadtrembl" value="true"/>
+        </source>
+        <source name="lewis-gff" type="cgr-lewis-gff">
+            <property name="gff3.taxonId" value="10029"/>
+            <property name="gff3.dataSetTitle" value="Lewis et al., Chinese Hamster Sequencing"/>
+            <property name="gff3.seqDataSourceName" value="Lewis Sequencing"/>
+            <property name="gff3.dataSourceName" value="Lewis Sequencing"/>
+            <property name="gff3.seqClsName" value="Chromosome"/>
+            <property name="src.data.dir" location="DATADIR/genome/lewis/gff"/>
+        </source>
+        <source name="xu-gff" type="cho-xu-gff">
+            <property name="gff3.taxonId" value="10029"/>
+            <property name="gff3.dataSetTitle" value="Xu et al., CHO K1 sequencing"/>
+            <property name="gff3.seqDataSourceName" value="Xu Sequencing"/>
+            <property name="gff3.dataSourceName" value="Xu Sequencing"/>
+            <property name="gff3.seqClsName" value="Chromosome"/>
+            <property name="src.data.dir" location="DATADIR/genome/xu/gff"/>
+        </source>
+        <source name="brinkrolf-gff" type="cgr-brinkrolf-gff">
+            <property name="gff3.taxonId" value="10029"/>
+            <property name="gff3.dataSetTitle" value="Brinkrolf et al., Chinese Hamster Chromosome Sequencing"/>
+            <property name="gff3.seqDataSourceName" value="Brinkrolf Sequencing"/>
+            <property name="gff3.dataSourceName" value="Brinkrolf Sequencing"/>
+            <property name="gff3.seqClsName" value="Chromosome"/>
+            <property name="src.data.dir" location="DATADIR/genome/brinkrolf/gff"/>
+        </source>
+        <source name="cho-sbml" type="cho-sbml">
+            <property name="src.data.dir" location="DATADIR/sbml"/>
+        </source>
+        <source name="cho-mirna" type="cho-mirna">
+            <property name="src.data.dir" location="DATADIR/mirbase"/>
+        </source>
+        <source name="cgr-uniprot-gff" type="cgr-uniprot-gff-merger">
+            <property name="src.data.dir" location="DATADIR/genome/uniprot_merge/"/>
+        </source>
+        <source name="brinkrolf-genome-fasta" type="fasta">
+            <property name="fasta.taxonId" value="10029"/>
+            <property name="fasta.dataSetTitle" value="Fasta Data Set to Brinkrolf et al., Chinese Hamster Chromosome Sequencing"/>
+            <property name="fasta.dataSourceName" value="Brinkrolf Fasta Sequences"/>
+            <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+            <property name="fasta.includes" value="*.fa"/>
+            <property name="src.data.dir" location="DATADIR/genome/brinkrolf/fasta"/>
+        </source>
+        <source name="lewis-genome-fasta" type="fasta">
+            <property name="fasta.taxonId" value="10029"/>
+            <property name="fasta.dataSetTitle" value="Fasta Data Set to Lewis et al., Chinese Hamster Sequencing"/>
+            <property name="fasta.dataSourceName" value="Lewis Fasta Sequences"/>
+            <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+            <property name="fasta.includes" value="*.fa"/>
+            <property name="src.data.dir" location="DATADIR/genome/lewis/fasta"/>
+        </source>
+        <source name="xu-genome-fasta" type="fasta">
+            <property name="fasta.taxonId" value="10029"/>
+            <property name="fasta.dataSetTitle" value="Fasta Data Set to Xu et al., CHO K1 sequencing"/>
+            <property name="fasta.dataSourceName" value="Xu Fasta Sequences"/>
+            <property name="fasta.className" value="org.intermine.model.bio.Chromosome"/>
+            <property name="fasta.includes" value="*.fa"/>
+            <property name="src.data.dir" location="DATADIR/genome/xu/fasta"/>
+        </source>
+        <source name="uniprot-fasta" type="fasta">
+            <property name="fasta.taxonId" value="10029"/>
+            <property name="fasta.className" value="org.intermine.model.bio.Protein"/>
+            <property name="fasta.classAttribute" value="primaryAccession"/>
+            <property name="fasta.dataSetTitle" value="UniProt data set"/>
+            <property name="fasta.dataSourceName" value="UniProt"/>
+            <property name="src.data.dir" location="DATADIR/uniprot"/>
+            <property name="fasta.includes" value="uniprot_sprot_varsplic.fasta"/>
+            <property name="fasta.sequenceType" value="protein" />
+            <property name="fasta.loaderClassName" value="org.intermine.bio.dataconversion.UniProtFastaLoaderTask"/>
+        </source>
+        <source name="uniprot-keywords" type="uniprot-keywords">
+            <property name="src.data.dir" location="DATADIR/uniprot"/>
+            <property name="src.data.dir.includes" value="keywlist.xml"/>
+        </source>
+        <source name="kegg-pathway" type="kegg-pathway">
+            <property name="src.data.dir" location="DATADIR/kegg/data"/>
+            <property name="kegg.organisms" value="10029"/>
+        </source>
+        <source name="interpro" type="interpro">
+            <property name="src.data.dir" location="DATADIR/interpro"/>
+            <property name="src.data.dir.includes" value="interpro.xml"/>
+        </source>
+        <source name="protein2ipr" type="protein2ipr">
+            <property name="src.data.dir" location="DATADIR/interpro"/>
+            <property name="src.data.dir.includes" value="protein2ipr.dat"/>
+            <property name="protein2ipr.organisms" value="10029"/>
+        </source>
+        <source name="so" type="so">
+            <property name="src.data.file" location="DATADIR/ontology/so-xp.obo"/>
+        </source>
+        <source name="go" type="go">
+            <property name="src.data.file" location="DATADIR/ontology/gene_ontology.obo"/>
+            <property name="createrelations" value="true"/>
+        </source>
+        <source name="go-annotation" type="go-annotation">
+            <property name="src.data.dir" location="DATADIR/genome/brinkrolf/go-annotation/"/>
+            <property name="ontologyPrefix" value="GO"/>
+        </source>
+        <source name="pubmed-gene" type="pubmed-gene">
+            <property name="src.data.dir" location="DATADIR/pubmed/" />
+            <property name="pubmed.organisms" value="10029"/>
+            <property name="src.data.dir.includes" value="gene2pubmed"/>
+        </source>
+        <source name="update-data-sources" type="update-data-sources">
+            <property name="src.data.file" location="build/datasources.xml"/>
+            <property name="dataSourceFile" value="DATADIR/uniprot/dbxref.txt"/>
+        </source>
+        <source name="update-publications" type="update-publications">
+            <property name="src.data.file" location="build/publications.xml"/> 
+        </source>
+        <source name="entrez-organism" type="entrez-organism">
+            <property name="src.data.file" location="build/organisms.xml"/>
+        </source>
+    </sources>
+
+    <post-processing>
+        <post-process name="populate-located-features"/>
+        <post-process name="create-references"/>
+        <post-process name="make-spanning-locations"/>
+        <post-process name="create-chromosome-locations-and-lengths"/>
+        <post-process name="create-intergenic-region-features"/>
+        <post-process name="transfer-sequences"/>
+        <post-process name="populate-child-features"/>
+        <post-process name="do-sources"/>
+        <post-process name="create-location-overlap-index"/>
+        <post-process name="create-overlap-view"/>
+        <post-process name="create-attribute-indexes"/>
+        <post-process name="summarise-objectstore"/>
+        <post-process name="create-autocomplete-index"/>
+        <post-process name="create-search-index"/>
+    </post-processing>
+
+</project>
+

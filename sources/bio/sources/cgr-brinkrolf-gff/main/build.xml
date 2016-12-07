@@ -1,0 +1,4 @@
+<project name="cgr-brinkrolf-gff-tasks" default="default" basedir=".">
+  <description>build cgr-brinkrolf-gff tasks</description>
+  <import file="../../../../imbuild/library.xml"/> 
+</project>

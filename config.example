@@ -1,0 +1,120 @@
+###############################################################################
+#
+# AUTHOR
+#
+# Matthias P. Gerstl (matthias.gerstl@acib.at)
+#
+#
+# README
+#
+# * Change variables to set correct path for original files.
+# * Do not use trailing slashes
+#
+###############################################################################
+
+#=================
+# intermine source
+#=================
+# if path is not set intermine will be cloned from github repository
+# in this case just use intermine_folder=
+intermine_folder=/path/to/already/cloned/intermine
+# choose a git branch for CHOmine
+intermine_tag=intermine-1.6.9
+
+#====================
+# postgresql settings
+#====================
+db_host=localhost
+db_port=12345
+db_user=chomine
+db_password=chomine
+db_mine=chomine
+db_items=items-chomine
+db_userprofile=userprofile-chomine
+different_dump_dir=true
+dumpdir=/path/to/different/dumpdir
+different_data_dir=true
+datadir=/path/for/saving/data
+
+#===============
+# genome sources
+#===============
+brinkrolf_gff=/path/to/brinkrolf_et_al.gff3
+brinkrolf_fa=/path/to/brinkrolf_et_al.fa
+lewis_gff=/path/to/lewis_et_al.gff3
+lewis_fa=/path/to/lewis_et_al.fa
+xu_gff=/path/to/xu_et_al.gff3
+xu_fa=/path/to/xu_et_al.gff
+
+#============
+# miRNA source
+#============
+mirna_file=/path/to/miRNA.bowtie
+
+#============
+# SBML source
+#============
+# only xml files that should be loaded are allowed to be in 
+# the given directory
+sbml_folder=/path/to/sbml/folder
+
+#================
+# protein sources
+#================
+# Following files are needed in uniprot folder:
+#   - 10029_uniprot_sprot.xml
+#   - 10029_uniprot_trembl.xml
+#   - keywlist.xml
+#   - uniprot_sprot_varsplic.fasta
+uniprot_folder=/path/to/uniprot/folder
+# Following files are needed in interpro folder:
+#   - interpro.xml
+#   - protein2ipr.dat
+interpro_folder=/path/to/interpro/folder
+
+#=================
+# ontology sources
+#=================
+# so file need to be named so-xp.obo
+so_folder=/path/to/so-ontology/folder
+# go file need to be named gene_ontology.obo
+go_folder=/path/to/go-ontology/folder
+
+#=================
+# pubmed sources
+#=================
+pubmed_folder=/path/to/pubmed/folder
+
+#=============
+# kegg sources
+#=============
+# keep both empty if map should be downloaded from kegg. 
+# in this case just use
+# kegg_path_map=
+# kegg_gene_map=
+kegg_path_map=/path/to/map_title.tab
+kegg_gene_map=/path/to/cge_gene_map.tab
+
+#================
+# webapp settings
+#================
+# set to true if mine is build on productive machine and not on a separate
+# development machine
+theme_hue=110
+build_webapp=false
+
+#=============
+# data storage
+#=============
+# data will be copied to a prepared directory. Set to false if this directory
+# should be deleted after building the mine.
+keep_sources=true
+# compression is only performed if keep_sources is set to true
+compress_sources=true
+# set to false if intermine logs should be deleted after mine build
+keep_intermine_logs=true
+# compression is only performed if keep_intermine_logs is set to true
+compress_intermine_logs=true
+# .git and .gitignore files are deleted if set to false
+keep_git_repository=false
+

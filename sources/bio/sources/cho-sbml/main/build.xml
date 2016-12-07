@@ -1,0 +1,4 @@
+<project name="cho-sbml-tasks" default="default" basedir=".">
+  <description>build cho-sbml tasks</description>
+  <import file="../../../../imbuild/library.xml"/> 
+</project>

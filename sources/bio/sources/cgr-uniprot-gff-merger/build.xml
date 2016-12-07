@@ -1,0 +1,5 @@
+<project name="cgr-uniprot-gff-merger" default="default" basedir=".">
+  <description>build, test, package cgr-uniprot-gff-merger</description>
+  
+  <import file="../../../imbuild/source.xml"/>
+</project>

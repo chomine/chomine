@@ -1,0 +1,4 @@
+<project name="cgr-brinkrolf-gff" default="default" basedir=".">
+  <description>build, test, package cgr-brinkrolf-gff</description>
+  <import file="../../../imbuild/source.xml"/>
+</project>

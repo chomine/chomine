@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+
+    <class name="MiRnaType" extends="SequenceFeature" is-interface="true">
+        <attribute name="type" type="java.lang.String" />
+        <attribute name="name" type="java.lang.String" />
+        <attribute name="mirbaseaccession" type="java.lang.String" />
+        <reference name="mirna" referenced-type="MiRna" reverse-reference="mirnatypes" />
+    </class>
+    <class name="MiRna" extends="BioEntity" is-interface="true">
+        <attribute name="name" type="java.lang.String" />
+        <collection name="mirnatypes" referenced-type="MiRnaType" reverse-reference="mirna" />
+    </class>
+
+</classes>

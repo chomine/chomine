@@ -1,0 +1,5 @@
+<project name="cho-sbml" default="default" basedir=".">
+  <description>build, test, package cho-sbml</description>
+  
+  <import file="../../../imbuild/source.xml"/>
+</project>

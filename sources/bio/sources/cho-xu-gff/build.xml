@@ -1,0 +1,4 @@
+<project name="cho-xu-gff" default="default" basedir=".">
+  <description>build, test, package cho-xu gff</description>
+  <import file="../../../imbuild/source.xml"/>
+</project>

@@ -1,0 +1,4 @@
+<project name="cgr-uniprot-gff-merger-tasks" default="default" basedir=".">
+  <description>build cgr-uniprot-gff-merger tasks</description>
+  <import file="../../../../imbuild/library.xml"/> 
+</project>

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+    <!-- add any <class> elements here -->
+    <class name="Protein" is-interface="true">
+        <attribute name="ecNumber" type="java.lang.String"/>
+        <collection name="exons" referenced-type="Exon" reverse-reference="protein"/>
+        <collection name="transcripts" referenced-type="Transcript" reverse-reference="protein"/>
+        <collection name="ecNumbers" referenced-type="ECNumber" reverse-reference="proteins" />
+        <collection name="comments" referenced-type="Comment"/>
+        <collection name="proteinDomainRegions" referenced-type="ProteinDomainRegion" reverse-reference="protein"/>
+    </class>
+    <class name="ECNumber" is-interface="true">
+        <attribute name="identifier" type="java.lang.String" />
+        <attribute name="description" type="java.lang.String" />
+        <collection name="proteins" referenced-type="Protein" reverse-reference="ecNumbers"/>
+    </class>  
+    <class name="Transcript" is-interface="true">
+        <collection name="comments" referenced-type="Comment"/>
+    </class>
+    <class name="MRNA" is-interface="true">
+        <attribute name="GI" type="java.lang.String"/>
+    </class>
+    <class name="Exon" is-interface="true">
+        <attribute name="GI" type="java.lang.String" />
+        <reference name="protein" referenced-type="Protein" reverse-reference="exons"/>
+    </class>
+    <class name="ProteinDomainRegion" is-interface="true">
+        <attribute name="identifier" type="java.lang.String"/>
+        <attribute name="database" type="java.lang.String"/>
+        <attribute name="start" type="java.lang.Integer"/>
+        <attribute name="end" type="java.lang.Integer"/>
+        <reference name="proteinDomain" referenced-type="ProteinDomain"/>
+        <reference name="protein" referenced-type="Protein" reverse-reference="proteinDomainRegions"/>
+    </class>
+    <class name="ProteinDomain" extends="BioEntity" is-interface="true">
+        <attribute name="name" type="java.lang.String"/>
+        <attribute name="shortName" type="java.lang.String"/>
+        <attribute name="type" type="java.lang.String"/>
+        <attribute name="description" type="java.lang.String"/>
+        <collection name="parentFeatures" referenced-type="ProteinDomain"/>
+        <collection name="childFeatures" referenced-type="ProteinDomain"/>
+        <collection name="contains" referenced-type="ProteinDomain"/>
+        <collection name="foundIn" referenced-type="ProteinDomain"/>
+    </class>
+
+    <!--
+    <class name="GOAnnotation" extends="OntologyAnnotation" is-interface="true">
+        <collection name="evidence" referenced-type="GOEvidence"/>
+    </class>
+    <class name="GOEvidenceCode" is-interface="true">
+        <attribute name="code" type="java.lang.String" />
+    </class>
+    <class name="GOTerm" extends="OntologyTerm" is-interface="true"/>
+    <class name="GOEvidence" is-interface="true">
+        <reference name="code" referenced-type="GOEvidenceCode"/>
+        <collection name="publications" referenced-type="Publication"/>
+    </class>
+-->
+    
+</classes>

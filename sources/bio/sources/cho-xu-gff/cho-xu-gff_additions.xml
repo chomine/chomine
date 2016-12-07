@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- This file details any extensions needed to the data model to store data from this source, everything else is automatically generated from the model description so this is all we need to do to add to the model. -->
+
+<classes>
+    <class name="MiRBase" is-interface="true">
+        <collection name="transcripts" referenced-type="Transcript" reverse-reference="mirbases"/>
+    </class>
+    <class name="Gene" is-interface="true">
+        <attribute name="partial" type="java.lang.Boolean" />
+        <attribute name="pseudo" type="java.lang.Boolean" />
+        <collection name="genesegments" referenced-type="GeneSegment" reverse-reference="gene"/>
+    </class>
+    <class name="Transcript" is-interface="true">
+        <attribute name="genbank" type="java.lang.String" />
+        <collection name="comments" referenced-type="Comment"/>
+        <collection name="mirbases" referenced-type="MiRBase" reverse-reference="transcripts"/>
+    </class>
+    <class name="NcRNA" extends="Transcript" is-interface="true">
+        <attribute name="ncRnaClass" type="java.lang.String" />
+    </class>
+    <class name="RRNA" extends="Transcript" is-interface="true">
+    </class>
+    <class name="TRNA" extends="Transcript" is-interface="true">
+        <attribute name="part" type="java.lang.String" />
+        <attribute name="anticodon" type="java.lang.String" />
+    </class>
+    <class name="MRNA" extends="Transcript" is-interface="true">
+        <attribute name="partial" type="java.lang.Boolean" />
+    </class>
+    <class name="PrimaryTranscript" extends="Transcript" is-interface="true">
+    </class>
+    <class name="GeneSegment" extends="SequenceFeature" is-interface="true">
+        <attribute name="part" type="java.lang.String" />
+        <reference name="gene" referenced-type="Gene" reverse-reference="genesegments"/>
+        <collection name="comments" referenced-type="Comment"/>
+    </class>
+    <class name="CGeneSegment" extends="GeneSegment" is-interface="true">
+    </class>
+    <class name="VGeneSegment" extends="GeneSegment" is-interface="true">
+    </class>
+    <class name="CDS" is-interface="true">
+        <attribute name="genbank" type="java.lang.String" />
+        <attribute name="partial" type="java.lang.Boolean" />
+        <collection name="comments" referenced-type="Comment"/>
+    </class>
+    <class name="Exon" is-interface="true">
+        <attribute name="exonNumber" type="java.lang.Integer" />
+        <attribute name="partial" type="java.lang.Boolean" />
+        <collection name="comments" referenced-type="Comment"/>
+    </class>
+</classes>

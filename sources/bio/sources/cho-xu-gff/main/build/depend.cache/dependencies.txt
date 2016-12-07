@@ -1,0 +1,15 @@
+||:org.intermine.bio.dataconversion.ChoXuGFF3RecordHandler
+org.intermine.xml.full.Item
+java.util.List
+org.intermine.xml.full.Attribute
+org.intermine.bio.dataconversion.GFF3RecordHandler
+org.intermine.bio.dataconversion.ChoXuGFF3RecordHandler
+java.io.PrintStream
+java.lang.System
+java.util.Iterator
+java.util.Map
+java.util.HashMap
+org.intermine.bio.dataconversion.GFF3Converter
+org.intermine.bio.io.gff3.GFF3Record
+[Ljava.lang.String;
+java.lang.String

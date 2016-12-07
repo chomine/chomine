@@ -1,0 +1,4 @@
+<project name="cho-xu-gff-tasks" default="default" basedir=".">
+  <description>build cho-xu-gff tasks</description>
+  <import file="../../../../imbuild/library.xml"/> 
+</project>
