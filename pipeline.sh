@@ -112,9 +112,6 @@ echo "$count/$steps ($(getTime)): change to set intermine tag"
 #===============================================================================
 cd "$pwd/intermine"
 git checkout -b chomine "$intermine_tag"
-cd "$pwd/intermine/intermine/webapp/main/resources/webapp/themes/chomine"
-bash blue2chomine.sh "$theme_hue"
-cd "$pwd"
 
 #===============================================================================
 count=$((count + 1))
