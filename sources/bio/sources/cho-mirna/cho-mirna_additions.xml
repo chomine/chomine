@@ -3,15 +3,15 @@
 
 <classes>
 
-    <class name="MiRnaType" extends="SequenceFeature" is-interface="true">
+    <class name="MiRNA" extends="SequenceFeature" is-interface="true">
         <attribute name="type" type="java.lang.String" />
         <attribute name="name" type="java.lang.String" />
         <attribute name="mirbaseaccession" type="java.lang.String" />
-        <reference name="mirna" referenced-type="MiRna" reverse-reference="mirnatypes" />
+        <reference name="cgrmirna" referenced-type="CgrMiRNA" reverse-reference="mirnas" />
     </class>
-    <class name="MiRna" extends="BioEntity" is-interface="true">
+    <class name="CgrMiRNA" extends="BioEntity" is-interface="true">
         <attribute name="name" type="java.lang.String" />
-        <collection name="mirnatypes" referenced-type="MiRnaType" reverse-reference="mirna" />
+        <collection name="mirnas" referenced-type="MiRNA" reverse-reference="cgrmirna" />
     </class>
 
 </classes>

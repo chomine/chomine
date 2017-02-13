@@ -98,23 +98,23 @@ public class ChoMiRnaConverter extends BioFileConverter
     		int end = start + len - 1;
     		
     		// get or create the miRNA item
-    		Item miRNA = miRnaMap.get(parent);
-    		if (miRNA == null){
-    			miRNA = createItem("MiRna");
-    			miRNA.setAttribute("primaryIdentifier", parent);
-    			miRNA.setAttribute("name", parent);
-    			miRNA.setAttribute("symbol", parent);
-    			miRnaMap.put(parent, miRNA);
+    		Item cgrMiRNA = miRnaMap.get(parent);
+    		if (cgrMiRNA == null){
+    			cgrMiRNA = createItem("CgrMiRNA");
+    			cgrMiRNA.setAttribute("primaryIdentifier", parent);
+    			cgrMiRNA.setAttribute("name", parent);
+    			cgrMiRNA.setAttribute("symbol", parent);
+    			miRnaMap.put(parent, cgrMiRNA);
             }
     		
     		// set miRNA type (mature or stemloop)
-    		Item miRnaType = createItem("MiRnaType");
+    		Item miRNA = createItem("MiRNA");
     		String type = is_mature ? "mature" : "stemloop";
-    		miRnaType.setAttribute("type", type);
-    		miRnaType.setAttribute("name", name);
-    		miRnaType.setAttribute("symbol", name);
-    		miRnaType.setAttribute("length", Integer.toString(len));
-    		miRnaType.setAttribute("mirbaseaccession", mirbase_id);
+    		miRNA.setAttribute("type", type);
+    		miRNA.setAttribute("name", name);
+    		miRNA.setAttribute("symbol", name);
+    		miRNA.setAttribute("length", Integer.toString(len));
+    		miRNA.setAttribute("mirbaseaccession", mirbase_id);
     		String m_id;
     		if (chromosome.startsWith("gi")){
     			m_id = "lewis.";
@@ -124,14 +124,14 @@ public class ChoMiRnaConverter extends BioFileConverter
     			m_id = "brinkrolf.";
     		}
     		m_id = m_id.concat(name);
-    		miRnaType.setAttribute("primaryIdentifier", m_id);
+    		miRNA.setAttribute("primaryIdentifier", m_id);
     		
     		// add sequence
     		Item seqItem = createItem("Sequence");
     		seqItem.setAttribute("residues", sequence);
     		seqItem.setAttribute("length", Integer.toString(len));
     		seqItem.setAttribute("md5checksum", Util.getMd5checksum(sequence));
-    		miRnaType.setReference("sequence", seqItem);
+    		miRNA.setReference("sequence", seqItem);
     		store(seqItem);
 
     		// get or create chromosome
@@ -151,21 +151,21 @@ public class ChoMiRnaConverter extends BioFileConverter
     		chrItem.addToCollection("locatedFeatures", locItem);
     		    		
     		// link miRNA to location
-    		locItem.setReference("feature", miRnaType);
+    		locItem.setReference("feature", miRNA);
     		store(locItem);
     		
     		// Create CrossReference for miRBase
     		Item crossReference = createItem("CrossReference");
     		crossReference.setAttribute("identifier", mirbase_id);
     		crossReference.setReference("source", datasource);
-    		miRnaType.addToCollection("crossReferences", crossReference);
-    		crossReference.setReference("subject", miRnaType);
+    		miRNA.addToCollection("crossReferences", crossReference);
+    		crossReference.setReference("subject", miRNA);
     		store(crossReference);
     		
-    		miRNA.addToCollection("mirnatypes", miRnaType);
-    		miRnaType.setReference("mirna", miRNA);
-    		miRnaType.setReference("chromosomeLocation", locItem);
-    		store(miRnaType);
+    		cgrMiRNA.addToCollection("mirnas", miRNA);
+    		miRNA.setReference("cgrmirna", cgrMiRNA);
+    		miRNA.setReference("chromosomeLocation", locItem);
+    		store(miRNA);
     	}
 
     	// store items to database

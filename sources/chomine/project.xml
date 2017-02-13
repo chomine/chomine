@@ -5,7 +5,7 @@
     <property name="intermine.properties.file" value="chomine.properties"/>
     <property name="default.intermine.properties.file" location="../default.intermine.integrate.properties"/>
     <sources>
-        <source name="uniprot-cgr" type="uniprot">
+        <source name="uniprot" type="uniprot">
             <property name="uniprot.organisms" value="10029"/>
             <property name="src.data.dir" location="DATADIR/uniprot/"/>
             <property name="creatego" value="true"/>
@@ -14,7 +14,7 @@
             <property name="loadfragments" value="true"/>
             <property name="loadtrembl" value="true"/>
         </source>
-        <source name="lewis-gff" type="cgr-lewis-gff">
+        <source name="cgr-lewis-gff" type="cgr-lewis-gff">
             <property name="gff3.taxonId" value="10029"/>
             <property name="gff3.dataSetTitle" value="Lewis et al., Chinese Hamster Sequencing"/>
             <property name="gff3.seqDataSourceName" value="Lewis Sequencing"/>
@@ -22,7 +22,7 @@
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="DATADIR/genome/lewis/gff"/>
         </source>
-        <source name="xu-gff" type="cho-xu-gff">
+        <source name="cho-xu-gff" type="cho-xu-gff">
             <property name="gff3.taxonId" value="10029"/>
             <property name="gff3.dataSetTitle" value="Xu et al., CHO K1 sequencing"/>
             <property name="gff3.seqDataSourceName" value="Xu Sequencing"/>
@@ -30,7 +30,7 @@
             <property name="gff3.seqClsName" value="Chromosome"/>
             <property name="src.data.dir" location="DATADIR/genome/xu/gff"/>
         </source>
-        <source name="brinkrolf-gff" type="cgr-brinkrolf-gff">
+        <source name="cgr-brinkrolf-gff" type="cgr-brinkrolf-gff">
             <property name="gff3.taxonId" value="10029"/>
             <property name="gff3.dataSetTitle" value="Brinkrolf et al., Chinese Hamster Chromosome Sequencing"/>
             <property name="gff3.seqDataSourceName" value="Brinkrolf Sequencing"/>
